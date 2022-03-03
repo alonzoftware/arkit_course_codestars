@@ -76,11 +76,15 @@ class ViewController: UIViewController {
         cylinderNode.position = SCNVector3(0,0,-0.1)
         boxNode.position = SCNVector3(0, -0.05, 0)
                 doorNode.position = SCNVector3(0,-0.02,0.053)
-        self.sceneView.scene.rootNode.addChildNode(node)
+        
 //        Relative Position
         node.addChildNode(cylinderNode)
         node.addChildNode(boxNode)
         boxNode.addChildNode(doorNode)
+//      Rotation
+        node.eulerAngles = SCNVector3(90.degreesToRadians,0,0)
+        self.sceneView.scene.rootNode.addChildNode(node)
+
 //        self.sceneView.scene.rootNode.addChildNode(cylinderNode)
     }
     
@@ -99,5 +103,8 @@ class ViewController: UIViewController {
     func randomNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
             return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
         }
+    
 }
-
+extension Int{
+    var degreesToRadians: Double{return Double(self) * .pi/180}
+}
