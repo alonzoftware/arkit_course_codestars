@@ -1,0 +1,6 @@
+framework module Pods_Whack_a_Jellyfish_Lon {
+  umbrella header "Pods-Whack_a_Jellyfish-Lon-umbrella.h"
+
+  export *
+  module * { export * }
+}
